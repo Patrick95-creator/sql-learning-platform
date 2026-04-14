@@ -46,15 +46,3 @@ SELECT u.Name, COUNT(e.CourseID) AS TotalCourses
 FROM Users u
 LEFT JOIN Enrollment e ON u.UserID = e.UserID
 GROUP BY u.Name;
-
-
--- Note:
--- This view is NOT updatable because it contains aggregation (COUNT + GROUP BY)
-
-
--- 3: Query equivalence analysis (conceptual, not executable)
--- Q1 may return multiple rows
--- Q2 and Q3 both return the maximum value
--- Therefore:
--- Q2 ≡ Q3
--- Q1 is NOT equivalent
